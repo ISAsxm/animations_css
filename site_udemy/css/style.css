@@ -1,0 +1,513 @@
+/* to resize the default value of font-size to 10px (because it is easier to calculate in rem 1rem == 10px) */
+html {
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    font-family: 'lato', 'sans-serif';
+    background-color: #F7F7F7;
+    color:rgba(142, 142, 142, 0.9);
+}
+
+/* Navigation */
+
+nav {
+    position: fixed;
+    z-index: 40;
+    width: 100%;
+    background-color: #f0ead6;
+    text-align: center;
+    height: 10rem;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 55% 70%, 50% 90%, 45% 70%, 0% 70%);
+    transition: all 0.4s ease-in-out;
+    /* animation greenSocks */
+    opacity: 0;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 3rem;
+    padding: 1rem 5rem;
+    line-height: 6.5rem;
+    font-family: 'Kaushan Script';
+    margin: auto;
+    color: #373737;
+}
+
+nav a:active {
+    font-size: 4rem;
+}
+
+#burger {
+    display: none;
+}
+
+/* header home */
+
+header {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/chef.jpg");
+    /* background: url(https://via.placeholder.com/350); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    position: relative;
+    top: 30rem;
+    font-family: 'Kaushan Script';
+    font-size: 11rem;
+    /* animation greenSocks */
+    opacity: 0;
+}
+
+header h2 {
+    text-align: center;
+    margin: 0;
+    color: #F7F7F7;
+    position: relative;
+    top: 32rem;
+    font-family: 'Abril Fatface';
+    font-size: 5rem;
+    letter-spacing: 0.2rem;
+    /* animation greenSocks */
+    opacity: 0;
+}
+
+#arrow {
+    color: #c0b283;
+    height: 8rem;
+    width: 8rem;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    line-height: 8rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 0 #fff;
+    animation: pulse 1.3s infinite;
+    /* animation greenSocks */
+    opacity: 0;
+}
+
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 0 1rem rgba(255, 255, 255, 0.01);
+    }
+}
+
+/* section about */
+
+#about {
+    background-color: #F7F7F7;
+    padding-bottom: 10rem;
+}
+
+.center-h {
+    text-align: center;
+    margin-bottom: 8rem;
+}
+
+.title-about {
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient(to right, #373737, #c0b283);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.2rem;
+    padding-top: 5rem;
+}
+
+.row {
+    max-width: 114rem;
+    margin: 0 auto;
+}
+/* to make a float hack */
+.row::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* to target at all class name who's content col [^="class-name"] */
+.row [class^="col-"] {
+    float: left;
+}
+.row [class^="col-"]:not(:last-child) {
+    margin-right: 6rem;
+}
+/* to calculate in css use calc */
+.row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2);
+}
+
+.compose {
+    position: relative;
+}
+
+.compose-img {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all .2s;
+    outline-offset: 2rem;
+}
+
+.compose-img--1 {
+    left: 0;
+    top: -2rem;
+}
+.compose-img--2 {
+    right: 0;
+    top: 2rem;
+}
+.compose-img--3 {
+    left: 20%;
+    top: 10rem;
+}
+
+.compose-img:hover {
+    outline: 1.5rem solid #c0b283;
+    transform: scale(1.05) translateY(-0.5rem);
+    box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+    z-index: 30;
+}
+/* to target at <img> who are not hovered */
+.compose:hover .compose-img:not(:hover) {
+    transform: scale(0.95);
+}
+
+.sub-title-about {
+    font-size: 1.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.col-1-of-2 p {
+    font-size: 1.9rem;
+}
+/* to target at all <p> except the last-child */
+.col-1-of-2 p:not(:last-child) {
+    margin-bottom: 3rem;
+}
+
+/* section achievement */
+
+#achievement {
+    border-top: 1px dashed rgb(209, 174, 59);
+}
+
+#achievement h2 {
+    text-align: center;
+    font-size: 5.5rem;
+    background: #F7F7F7;
+    background-image: linear-gradient(to right, #000, rgb(255, 239, 185));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    padding-top: 4rem;
+}
+
+#container-cards {
+    background: #f7f7f7;
+    width: 100%;
+    height: 60rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8rem;
+}
+
+.flex-card {
+    width: 30rem;
+    height: 45rem;
+    margin: 2rem;
+    transition: all 0.2s ease-in;
+    
+}
+.flex-card:not(:nth-child(2)) {
+    border: 1px dashed #373737;
+}
+
+.flex-card:nth-child(2) > *  {
+    background: #373737;
+    color: #ffd700;
+}
+
+.head-card {
+    width: 100%;
+    height: 10rem;
+    text-align: center;
+    color: #373737;
+    background: #f0ead6;
+}
+
+.head-card p {
+    margin: 0;
+    font-size: 3rem;
+    line-height: 10rem;
+    font-family: 'Abril Fatface';
+}
+/* to center text perfectly in a parent, put the same value on the height and the line-height (line height equal to the height of the container) */
+.content-card {
+    margin: auto;
+    text-align: center;
+    font-size: 1.6rem;
+    background: #F0ead6;
+    height: 6rem;
+    line-height: 6rem;
+}
+
+.foot-card {
+    margin: 0;
+    height: 11rem;
+    background: #f0ead6;
+}
+
+.foot-card p {
+    margin: 0 auto;
+    font-size: 5rem;
+    text-align: center;
+    line-height: 11rem;
+    font-family: 'Abril Fatface';
+}
+
+.flex-card:hover {
+    transform: scale(1.05);
+}
+
+/* section carousel */
+
+#slide {
+    height: 60rem;
+    width: 100%;
+    border-top: 1px dashed rgb(209, 174, 59);
+    background: url('../images/macaron.jpg');
+    /* background: url(https://via.placeholder.com/350); */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110rem;
+    height: 40rem;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    background: rgba(55, 55, 55 ,0.3);
+    color: #fff;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: -2.25rem;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 4.5rem;
+    text-align: center;
+    line-height: 45px;
+}
+
+.carousel .change-hidden {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    height: 13rem;
+    line-height: 13rem;
+    width: 100rem;
+    overflow: hidden;
+
+}
+
+.carousel .change-hidden .content-slide {
+    position: relative;
+    animation: carousel 8s ease-in-out infinite;
+}
+
+.carousel .change-hidden .element {
+    font-weight: 700;
+    font-size: 8rem;
+}
+
+@keyframes carousel {
+    0%, 20% {
+        transform: translateY(0);
+    }
+    25%, 45% {
+        transform: translateY(-13rem);
+    }
+    50%, 70% {
+        transform: translateY(-26rem);
+    }
+    75%, 95% {
+        transform: translateY(-39rem);
+    }
+    100% {
+        transform: translateY(-52rem);
+    }
+}
+
+/* section specialties */
+
+#specialties {
+    height: 72rem;
+    width: 100%;
+    background: #f7f7f7;
+    border-top: 1px dashed rgb(209, 174, 59);
+    padding-bottom: 10rem;
+}
+
+#specialties h3 {
+    text-align: center;
+    font-size: 5.5rem;
+    background-image: linear-gradient(to right, #373737, #c0b283);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0;
+}
+
+#specialties p {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.container-flex {
+    width: 100%;
+    height: 60rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trio {
+    height: 50rem;
+    width: 40rem;
+    background: #F7F7F7;
+    margin: 5rem;
+    overflow: hidden;
+}
+
+.legend {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: #F0ead6;
+}
+
+.legend h4 {
+    font-size: 2rem;
+    margin: 0;
+    padding-top: 2rem;
+}
+
+.specialties-img {
+    width: 100%;
+    height: 80%;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease-in-out;
+}
+
+.specialties-img-1 {
+    /* background: url(../images/cafe_gourmand.jpg); */
+    background: url(https://via.placeholder.com/350);
+    background-position: 35% 15%;
+}
+.specialties-img-1:hover {
+    transform: scale(1.2);
+}
+.specialties-img-2 {
+    /* background: url(../images/pomme_verte.jpg); */
+    background: url(https://via.placeholder.com/350);
+    background-position: 50% 40%;
+}
+.specialties-img-2:hover {
+    transform: scale(1.2);
+}
+.specialties-img-3 {
+    /* background: url(../images/choux.jpg); */
+    background: url(https://via.placeholder.com/350);
+    background-position: center;
+}
+.specialties-img-3:hover {
+    transform: scale(1.2);
+}
+
+/* section contact */
+
+#contact {
+    height: 20rem;
+    width: 100%;
+    border-top: 1px dashed rgb(209, 174, 59);
+}
+
+#contact h2 {
+    font-size: 10rem;
+    text-align: center;
+    color: #373737;
+}
+
+#contact h3 {
+    text-align: center;
+    font-size: 5.5rem;
+    background-image: linear-gradient(to right, #373737, #c0b283);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0;
+}
+
+.container-flex-media {
+    display: flex;
+    justify-content: center;
+}
+
+.medias {
+    font-size: 10rem;
+    margin: 2rem;
+}
+
+.medias a {
+    text-decoration: none;
+    color: #373737;
+    transition: all 0.6s ease-in-out;
+}
+
+.medias a:hover {
+    color: #c0b283;
+}
+footer {
+    display: none;
+}

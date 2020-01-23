@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mediaQueries.css">
+    <title>Site_udemy</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav id="nav-bar">
+            <a href="#home" class="nav-link scrollTo">Accueil</a>
+            <a href="#about" class="nav-link scrollTo">A propos</a>
+            <a href="#achievement" class="nav-link scrollTo">Réalisations</a>
+            <a href="#contact" class="nav-link scrollTo">Contact</a>
+            <a id="burger" class="icon"><i class="fas fa-bars"></i></a>
+        </nav>
+        <h1>Alexandre Moussé.</h1>
+        <h2>Chef Pâtissier.</h2>
+        <a href="#about" id="arrow" class="scrollTo"><i class="fas fa-cookie"></i></a>
+        <!-- <a href="#about" id="arrow" class="scrollTo"><i class="fas fa-utensils"></i></a> -->
+        <!-- <img src="https://via.placeholder.com/150"> -->
+    </header>
+    <!-- section about -->
+    <section id="about" class="section-about">
+        <div class="center-h">
+            <h2 class="title-about">A propos de moi</h2>
+        </div>
+        <div class="row">
+            <div class="col-1-of-2">
+                <h3 class="sub-title-about">Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolore blanditiis error! Culpa reprehenderit libero veniam recusandae quidem error officia aut perspiciatis veritatis alias? Dolorem laboriosam nobis aliquam ab neque.</p>
+                <h3 class="sub-title-about">Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolore blanditiis error! Culpa reprehenderit libero veniam recusandae quidem error officia aut perspiciatis veritatis alias? Dolorem laboriosam nobis aliquam ab neque.</p>
+            </div>
+            <div class="col-1-of-2">
+                <div class="compose">
+                    <img src="images/chef_et_tarte_tatin.jpg" alt="image 1" class="compose-img compose-img--1">
+                    <img src="images/tarte_tatin.jpg" alt="image 2" class="compose-img compose-img--2">
+                    <img src="images/cup.jpg" alt="image 3" class="compose-img compose-img--3">
+                </div>
+                <!-- <div class="compose">
+                    <img src="https://via.placeholder.com/150" alt="image 1" class="compose-img compose-img--1">
+                    <img src="https://via.placeholder.com/150" alt="image 2" class="compose-img compose-img--2">
+                    <img src="https://via.placeholder.com/150" alt="image 3" class="compose-img compose-img--3">
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <!-- section achievement -->
+    <section id="achievement">
+        <h2>Mes réalisations.</h2>
+
+        <div id="container-cards">
+
+            <div class="flex-card">
+                <div class="head-card">
+                    <p>Entremet</p>
+                </div>
+                <div class="content-card">Tartes</div>
+                <div class="content-card">Entremets</div>
+                <div class="content-card">Chocolat</div>
+                <div class="content-card">Glaces</div>
+                <div class="foot-card">
+                    <p>10€</p>
+                </div>
+            </div>
+            <div class="flex-card">
+                <div class="head-card">
+                    <p>Chocolat</p>
+                </div>
+                <div class="content-card">Tartes</div>
+                <div class="content-card">Entremets</div>
+                <div class="content-card">Chocolat</div>
+                <div class="content-card">Glaces</div>
+                <div class="foot-card">
+                    <p>10€</p>
+                </div>
+            </div>
+            <div class="flex-card">
+                <div class="head-card">
+                    <p>Sucre</p>
+                </div>
+                <div class="content-card">Tartes</div>
+                <div class="content-card">Entremets</div>
+                <div class="content-card">Chocolat</div>
+                <div class="content-card">Glaces</div>
+                <div class="foot-card">
+                    <p>10€</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section slide -->
+    <section id="slide">
+        <div class="frame">
+            <div class="center">
+                <div class="carousel">
+                    <div class="change-hidden">
+                        <div class="content-slide">
+                            <div class="element">Bonbons en Chocolat</div>
+                            <div class="element">Entremets fruités</div>
+                            <div class="element">Sucre tiré</div>
+                            <div class="element">Crèmes Glacées</div>
+                            <!-- le 5ème text doit être identique au 1er pour plus de fluiditer -->
+                            <div class="element">Bonbons en Chocolat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section specialties -->
+    <section id="specialties">
+        <h3>Mes spécialités</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo dolorum voluptas commodi.</p>
+        <div class="container-flex">
+            <div class="trio">
+                <div class="specialties-img specialties-img-1 "></div>
+                <div class="legend">
+                    <h4>Entremet</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <div class="trio">
+                <div class="specialties-img specialties-img-2"></div>
+                <div class="legend">
+                    <h4>Chocolat</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <div class="trio">
+                <div class="specialties-img specialties-img-3"></div>
+                <div class="legend">
+                    <h4>Sucre</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section contact -->
+    <section id="contact">
+        <h2>Téléphone</h2>
+        <h3>02233333</h3>
+        <div class="container-flex-media">
+            <div class="medias">
+                <a href="https://www.instagram.com" target="blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="medias">
+                <a href="https://www.twitter.com" target="blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="medias">
+                <a href="https://www.behance.com" target="blank"><i class="fab fa-behance"></i></a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <small> Copy Right 2019 &copy; By ISAsxm All Rights Reserved</small>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+    <script src="js/greenSock.js"></script>
+</body>
+</html>
