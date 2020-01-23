@@ -2,7 +2,7 @@
 
 ----------------
 
-Ensemble de repo contenant les exercices des cours suivit sur __ udemy__  
+Ensemble de repo contenant les exercices des cours suivit sur __udemy__  
 
 ----------------  
 
