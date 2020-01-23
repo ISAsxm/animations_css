@@ -1,0 +1,57 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 142px;
+    height: 40px;
+    /* la couleur permet de faire le contraste si on laisse vide c'est flou*/
+    background:#fff;
+    /* 20 == 2000% (1 == 100%) */
+    filter: contrast(20);
+}
+
+/* pour le premier point */
+.container .dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 12px;
+    left: 15px;
+    /* effet blur permet de donner aussi une forme arrondie */
+    filter: blur(4px);
+    background: #000;
+    border-radius: 50%;
+    animation: point 2.8s infinite;
+}
+
+.dots span {
+    display: block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-left: 16px;
+    filter: blur(4px);
+    background: #000;
+    border-radius: 50%;
+}
+
+/* on decale le container des 3 points */
+.container .dots {
+    margin-top: 12px;
+    margin-left: 31px;
+    animation: points 2.8s infinite;
+}
+
+/* mettre seulement 50% permet ici de donner une impression d'alternate a l'infini*/
+@keyframes point {
+    50% {
+        transform: translateX(96px);
+    }
+}
+
+@keyframes points {
+    50% {
+        transform: translateX(-31px);
+    }
+}

@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: rgb(218,73,48);
+}
+
+.card {
+    cursor: pointer;
+    width: 340px;
+    height: 480px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    /* pour cacher la face verso de notre vue elle passera en display none */
+    backface-visibility: hidden;
+    /* pour les placer les unes sous les autres */
+    position: absolute;
+    transition: transform .6s linear;
+}
+
+.front img {
+    height: 100%;
+    width: 100%;
+}
+
+.front {
+    /* perspective == axe des Z, c'est la distance entre un élememt et l'écran de l'utilisateur (plus la distance est grande, plus on a l'impression que l'élément est loin , ici c'est comme s'il y avait 600px entre l'écran et l'élément -- rotateY a 0 pour que la face ne bouge pas*/
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.back {
+    background: #f1f1f1;
+    /* on la fait tourner a 180deg sur y pour la cacher derriere l'autre (grace a backface-visibility) */
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.content {
+    color: #2c3e50;
+    text-align: center;
+    width: 100%;
+    margin-top: 200px;
+}
+
+.card:hover .front {
+    transform: perspective(600px) rotateY(-180deg);
+}
+.card:hover .back {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+ 
