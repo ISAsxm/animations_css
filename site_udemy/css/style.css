@@ -508,6 +508,13 @@ header h2 {
 .medias a:hover {
     color: #c0b283;
 }
+
 footer {
-    display: none;
+    background-color: #373737;
+    height: 8rem;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
