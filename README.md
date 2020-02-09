@@ -42,8 +42,7 @@ un menu burger en pur css avec effet background qui s'étire et un menu qui appa
 
 * slide-css
 
-un slider automatique avec bouton de contrôle play/pause, une possibilité pour l'utilisateur de prendre le contrôle du slider soit avec des flêches directionnellles, soit avec les points de repères sous les slides
+un slider en pur css automatique avec bouton de contrôle play/pause, une possibilité pour l'utilisateur de prendre le contrôle du slider soit avec des flêches directionnellles, soit avec les points de repères sous les slides
 
 
 ----------------
-
