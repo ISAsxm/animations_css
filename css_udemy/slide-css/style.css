@@ -15,9 +15,20 @@ h2 {
     white-space: nowrap;
 }
 
-/* **************************************************************************************************************************************************************************************************************************** */
-/* test slide user control */
-#slider-container{
+/* ******************************************************
+            les sliders auto et user control
+********************************************************* */
+/* le container parent */
+#first-slider {
+    position: relative;
+    width: 640px;
+    height: 310px;
+    padding: 15px;
+    margin: 0 auto 2em;
+}
+
+/* la section principale version auto (container du slider , des flèches et des dots sous le slider) */
+#slider-container {
     position: relative;
     width: 640px;
     height: 310px;
@@ -28,31 +39,33 @@ h2 {
     border-radius: 2px 2px 2px 2px;
     box-shadow: 0 0 3px rgba(0,0,0, 0.2);
 }
-/* juste pour positionner le play/pause */
-#first-slider {
-    position: relative;
-    width: 640px;
-    height: 310px;
-    padding: 15px;
-    margin: 0 auto 2em;
-}
-
+/* le container du slider-auto et du slider-control */
 #slider {
     position: relative;
 }
 
+/* pour les slides en version automatique */
 #slider-auto {
     height: 310px;
 }
-
-/* image after/before chaque slide sur le container du slider*/
+/* pour les slides en version user control */
+#slider-control {
+    position: absolute;
+    left: 0; 
+    top: 0;
+    width: 640px;
+    height: 310px;
+    visibility: hidden;
+}
+/* image precedente et suivante à chaque slide sur le container du slider , on cache la version auto et on montre la version control dès activation du user control (== au "clic" sur une des flèches directionnelles) */
 #slider-container::before,
-#slider-container::after {
+#slider-container::after,
+#slider-control-container::before,
+#slider-control-container::after {
     content: "";
     width: 160px;
     height: 77.5px; 
     position: absolute;
-    top: 30%;
     margin: 1em;
     border: 3px solid #ddd;
     background: linear-gradient(#FFF, #FFF 20%, #EEE 80%, #DDD);
@@ -61,132 +74,28 @@ h2 {
 }
 #slider-container::before {
     left: -30%;
+    top: 30%;
+}
+#slider-control-container::before {
+    left: -27.5%;
+    top: 35%;
+    visibility: hidden;
 }
 #slider-container::after {
     left: 100%;
+    top: 30%;
+}
+#slider-control-container::after  {
+    left: 102.3%;
+    top: 35%;
+    visibility: hidden;
 }
 
-/* animation des before :
-on affiche l'img precedente en synchro avec l'affichage grande carte */
-@keyframes sliderBefore {
-    /* div 1 img 4 prev  background-size: 50px 150px; */
-    0%, 20% { background: url("https://images.unsplash.com/photo-1456926631375-92c8ce872def?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" ) 0 0 no-repeat; background-size: 160px 77.5px; }
-    /* div 2 img 1 prev */
-    25%, 45% { background: url("https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1356&q=80") 0 0 no-repeat; background-size: 160px 77.5px; }
-    /* div 3 img 2 prev */
-    50%, 70% { background: url("https://images.unsplash.com/photo-1489084917528-a57e68a79a1e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 0 0 no-repeat; background-size: 160px 77.5px; }
-    /* div 4 img 3 prev */
-    75%, 95% { background: url("https://images.unsplash.com/photo-1504006833117-8886a355efbf?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 0 0 no-repeat; background-size: 160px 77.5px; }
-    /* div 1 img 4 prev */
-    100% { background: url("https://images.unsplash.com/photo-1456926631375-92c8ce872def?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" ) 0 0 no-repeat; background-size: 160px 77.5px; }
-}
-
-/* animation des after :
-on affiche l'img suivante en synchro avec l'affichage grande carte */
-@keyframes sliderAfter {
-    /* div 1 img 2 next */
-    0%, 20% { background: url("https://images.unsplash.com/photo-1489084917528-a57e68a79a1e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 0 0 no-repeat; background-size: 160px 77.5px;}
-    /* div 2 img 3 next */
-    25%, 45% { background: url("https://images.unsplash.com/photo-1504006833117-8886a355efbf?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 0 0 no-repeat; background-size: 160px 77.5px;}
-    /* div 3 img 4 next */
-    50%, 70% { background: url("https://images.unsplash.com/photo-1456926631375-92c8ce872def?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" ) 0 0 no-repeat; background-size: 160px 77.5px;}
-    /* div 4 img 1 next */
-    75%, 95% { background: url("https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1356&q=80") 0 0 no-repeat; background-size: 160px 77.5px;}
-    /* div 1 img 2 next */
-    100% { background: url("https://images.unsplash.com/photo-1489084917528-a57e68a79a1e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 0 0 no-repeat; background-size: 160px 77.5px;}
-}
-
-/* animation de la card principale */
-@keyframes sliderAuto {
-    /* div 1 img 1 */
-    0%, 20% { background: url("https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1356&q=80") 0 0 no-repeat; background-size: 640px 310px; }
-    /* div 2 img 2 */
-    25%, 45% { background: url("https://images.unsplash.com/photo-1489084917528-a57e68a79a1e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 0 0 no-repeat; background-size: 640px 310px; }
-    /* div 3 img 3 */
-    50%, 70% { background: url("https://images.unsplash.com/photo-1504006833117-8886a355efbf?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 0 0 no-repeat; background-size: 640px 310px; }
-    /* div 4 img 4 */
-    75%, 95% { background: url("https://images.unsplash.com/photo-1456926631375-92c8ce872def?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 0 0 no-repeat; background-size: 640px 310px; }
-    /* div 1 img 4 prev */
-    100% { background: url("https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1356&q=80") 0 0 no-repeat; background-size: 640px 310px; }
-}
-/* animation de la timeline */
-@keyframes timeliner {
-    0%, 25%, 50%, 75%, 100% { width: 0; }
-    20%, 45%, 70%, 95%      { width: 640px; }
-}
-
-/* lancement des animations */
-#slider-auto {
-    animation: sliderAuto 12s infinite;
-}
-#slider-container::before {
-    animation: sliderBefore 12s infinite;
-}
-#slider-container::after {
-    animation: sliderAfter 12s infinite;
-}
-#timeline {
-    animation: timeliner 12s infinite;
-}
-/* bouton de controle */
-
-input[type="checkbox"] {
-    position: absolute;
-    top: -190px;
-    /* visibility: hidden; */
-    opacity: 0;
-}
-#sl-control{
-    /* positionnement en haut à droite de la carte principale */ 
-    position: absolute;
-    top: 45px; 
-    right: 45px;
-    z-index: 100;
-    border: 0 none;
-    opacity: 0;
-    transition: opacity 1s;
-}
-#sl-control::before, #sl-control::after {
-    content: "";
-    position: absolute;
-    display: block;
-    top: 0;
-    width: 38%;
-    height: 22px;
-    font-size: 1.2rem;
-    letter-spacing: 0.2rem;
-    color: rgba(255,255,255,0.5);
-    cursor: pointer;
-}
-#sl-control::before {
-    content: "\25b6";
-}
-#sl-control::after {
-    content: "\275A\275A";
-    opacity: 0;
-}
-/* pour faire apparaître le bouton play/pause au hover */
-#first-slider:hover #sl-control {
-    opacity: 1;
-}
-/* pour switcher le caractères du bouton */
-#toggle:checked + #sl-control::before {
-    opacity: 0;
-}
-#toggle:checked + #sl-control::after {
-    opacity: 1;
-}
-/* au "clic" sur label #sl-control, stop toutes les animations */
-#toggle:checked ~ #slider-container #slider #slider-auto,
-#toggle:checked ~  #slider-container::before,
-#toggle:checked ~  #slider-container::after,
-#toggle:checked ~ #slider-container .dots_commands li:first-child a:after,
-#toggle:checked ~ #slider-container #timeline {
-    animation-play-state: paused;
-}
-
-/* espace prévu pour la timeline */
-#slider #slider-auto::after {
+/* ******************************************************
+            barre de progression sous le slide auto
+********************************************************* */
+/* background de la barre de progression */
+#slider-auto::after {
     position: absolute;
     bottom: 0; 
     left: 0;
@@ -195,7 +104,7 @@ input[type="checkbox"] {
     height: 1px;
     background: #999;
 }
-/* style de la timeline */
+/* barre de progression */
 #timeline {
     position: absolute;
     background: #999;
@@ -205,21 +114,23 @@ input[type="checkbox"] {
     background: rgba(255,255,255,0.8);
     width: 0;
 }
-/* **************************************************************************************************************************************************************************************************************************** */
 
-.dots_commands {
+/* ******************************************************
+            points de repere sous les slides
+********************************************************* */
+.dots-commands {
     position: relative;
     top: 32px;
     margin: 0;
     padding: 0;
     text-align: center;
 }
-.dots_commands li {
+.dots-commands li {
     display: inline;
     padding: 0;
     margin: 0;
 }
-.dots_commands a {
+.dots-commands a {
     position: relative;
     display: inline-block;
     height: 10px; 
@@ -230,15 +141,13 @@ input[type="checkbox"] {
     border-radius: 50%;
     box-shadow: 0 1px 2px rgba(0,0,0,0.55) inset;
 }
-/* quelques styles au focus */
-.dots_commands a:focus { 
-    outline: none;
-    background: #f0f0f0;
+.dots-commands li:first-child a { 
+    z-index: 25; 
 }
-.dots_commands li:first-child a { z-index: 25; }
 
-/* on style after */
-.dots_commands li:first-child a:after {
+/* création des points de repère avec les pseudos elements after et before */
+.dots-commands li:first-child a::before,
+.dots-commands li:first-child a::after {
     position: absolute;
     top: 0; 
     left: 0;
@@ -250,13 +159,207 @@ input[type="checkbox"] {
     border-radius: 50%;
     box-shadow: 0 1px 2px rgba(0,0,0,0.55) inset;
 }
+.dots-commands li:first-child a::before {
+    display: none;
+}
 
-/* les animations  */
+/* ******************************************************
+            pour les flèches de controle
+********************************************************* */
+.arrow {
+    position: absolute;
+    padding: 5px 13px;
+    font-size: 1.3em;
+    line-height: 1.5rem;
+    color: #aaa;
+    text-decoration:none;
+    background-color: #eee;
+    background-image: linear-gradient(#fff,#ddd);
+    text-shadow: 0 0 1px #aaa;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+.prev {
+    transform: translate(-120px,250px);
+}
+.next {
+    transform: translate(750px, 250px);
+}
+/* pour cacher les flèches sauf les correspondantes (la cible de ces flèches correspond respectivement aux images precedentes et suivantes de l'image principale) */
+#slider-container .arrow {
+    display: none;
+}
+#slider-container .arrow-1 {
+    display: block;
+}
 
+/* ******************************************************
+            pour les boutons start & stop
+********************************************************* */
 
+/* start and stop du slider */
+.sl-controler { 
+    position: absolute;
+    top: 12%; 
+    right: 2%;
+    z-index: 10;
+    width: 22px;
+    height: 22px;
+    text-indent: -9999px;
+    border:0 none;
+    opacity: 0;
+    transition: opacity 1s, right 1s;
+}
+.play { 
+    right: 55px; 
+    cursor: default;
+}
+/* icon pause avec 2 pseudos éléments pour faire des barres parallèles */
+.pause::after,
+.pause::before {
+    position: absolute;
+    display: block;
+    content: " ";
+    top:0;
+    width:38%;
+    height: 22px;
+    background: rgba(255,255,255,0.5);
+}
+.pause::after {
+    right: 0;
+}
+.pause::before {
+    left: 0;
+}
+/* icon play avec des border pour faire un triangle (les border avec les dimensions et la color transparent forment un triangle ) */
+.play {
+    width: 1px; 
+    height: 1px; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 20px solid rgba(255,255,255,0.5); 
+    opacity: 0;
+}
+/* apparition du bouton pause au survol de la section lors du slide auto */
+/* apparition des boutons au focus pour plus de confort utilisateur */
+#first-slider:hover .pause,
+.sl-control:focus {
+    opacity: 1;
+    outline: none;
+}
+/* switch entre les "boutons" play/pause */
+/* cacher pause par default au clic de toutes les flèches */
+.sl-command:target ~ #first-slider .pause {
+    opacity: 0;
+}
+/* quand clic sur play, pause apparait */
+#sl-play:target ~ #first-slider:hover .pause,
+#sl-play:target ~ #first-slider .pause:focus {
+    opacity: 1;
+}
+/* laisser apparaitre play par default et au clic de toutes les flèches et pause */
+.sl-command:target ~ #first-slider .play {
+    opacity: 1;
+    right: 25px;
+    cursor: pointer;
+}
+/* cacher et decaler play au clic sur "play" */
+#sl-play:target ~ #first-slider .play {
+    opacity: 0;
+    right: 55px;
+    cursor: default;
+}
 
-/* animation des dot */
-@keyframes dotser {
+/* stopper les animations si clic sur une flèche directionnelle et sur pause */
+.sl-command:target ~ #first-slider #slider-container #slider #slider-auto,
+.sl-command:target ~ #first-slider #slider-container::before,
+.sl-command:target ~ #first-slider #slider-container::after,
+.sl-command:target ~ #first-slider #slider-container .dots-commands li:first-child a::after,
+.sl-command:target ~ #first-slider #slider-container #timeline {
+    animation-play-state: paused;
+}
+
+/* pour redemarrer les animations au "clic" sur le bouton play */
+#sl-play:target ~ #first-slider #slider-container #slider #slider-auto,
+#sl-play:target ~ #first-slider  #slider-container::before,
+#sl-play:target ~ #first-slider  #slider-container::after,
+#sl-play:target ~ #first-slider #slider-container .dots-commands li:first-child a::after,
+#sl-play:target ~ #first-slider #slider-container #timeline {
+    animation-play-state: running;
+}
+
+/* pour cacher le slider-control et faire apparaitre le slider-auto */
+#sl-play:target ~ #first-slider  #slider-container::before,
+#sl-play:target ~ #first-slider  #slider-container::after,
+#sl-play:target ~ #first-slider #slider-container #slider #slider-auto {
+    visibility: inherit;
+}
+#sl-play:target ~ #first-slider  #slider-control-container::before,
+#sl-play:target ~ #first-slider  #slider-control-container::after,
+#sl-play:target ~ #first-slider #slider-container #slider #slider-control {
+    visibility: hidden;
+}
+
+/* ******************************************************
+            pour les animations en mode auto
+********************************************************* */
+#slider-auto,
+#slider-control,
+#slider-container::before,
+#slider-container::after,
+#slider-control-container::before,
+#slider-control-container::after {
+    /* multiple background  on calcul la position en incrémentant la width de 1 image sur X, et 0 a Y*/
+    background: url("https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1356&q=80") 0 0 no-repeat,
+                url("https://images.unsplash.com/photo-1489084917528-a57e68a79a1e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 640px 0 no-repeat,
+                url("https://images.unsplash.com/photo-1504006833117-8886a355efbf?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80") 1280px 0 no-repeat,
+                url("https://images.unsplash.com/photo-1456926631375-92c8ce872def?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" ) 1920px 0 no-repeat;
+}
+#slider-auto,
+#slider-control {
+    /* le background-size est la dimension de 1 image */
+    background-size: 640px 310px;
+}
+#slider-container::before,
+#slider-container::after,
+#slider-control-container::before,
+#slider-control-container::after  {
+    /* le background-size est la dimension de 1 image */
+    background-size: 160px 77.5px;
+}
+
+/* animation du slider auto */
+@keyframes sliderAuto {
+    0% , 20% , 100% { background-position: 0 0, 640px 0, 1280px 0, 1920px 0; }
+    25% , 45% { background-position: -640px 0, 0 0, 640px 0, 1280px 0; }
+    50% , 70% { background-position: -1280px 0, -640px 0, 0 0, 640px 0; }
+    75% , 95% { background-position: -1920px 0, -1280px 0, -640px 0, 0 0; }
+}
+
+/* animation du slider before */
+@keyframes sliderAutoBefore {
+    0% , 20% , 100%  { background-position: -480px 0, -320px 0, -160px 0, 0 0; }
+    25% , 45% { background-position: 0 0, 160px 0, 320px 0, 480px 0; }
+    50% , 70% { background-position: -160px 0, 0 0, 160px 0, 320px 0; }
+    75% , 95% { background-position: -320px 0, -160px 0, 0 0, 160px 0; }
+}
+
+/* animation du slider after */
+@keyframes sliderAutoAfter {
+    0% , 20% , 100% { background-position: -160px 0, 0 0, 160px 0, 320px 0; }
+    25% , 45% { background-position: -320px 0, -160px 0, 0 0, 160px 0; }
+    50% , 70% { background-position: -480px 0, -320px 0, -160px 0, 0 0; }
+    75% , 95% { background-position: 0 0, 160px 0, 320px 0, 480px 0; }
+}
+
+/* animation de la barre de progression */
+@keyframes timeLiner {
+    0%, 25%, 50%, 75%, 100% { width: 0; }
+    20%, 45%, 70%, 95%      { width: 640px; }
+}
+
+/* animation des points de reperes sous le slider */
+@keyframes dots {
     0%, 100%    { opacity: 1; left: 0; }
 
     20%         { opacity: 1; left: 0; }
@@ -279,20 +382,124 @@ input[type="checkbox"] {
     98%         { opacity: 0; left: 0; }
 }
 
-/* on anime dot "after" */
-.dots_commands li:first-child a:after {
-    animation: dotser 12s infinite;
+/* lancement des animations */
+/* slider */
+#slider-auto {
+    animation: sliderAuto 12s infinite;
+}
+/* petit slider prev */
+#slider-container::before {
+    animation: sliderAutoBefore 12s infinite;
+}
+/* petit slider next */
+#slider-container::after {
+    animation: sliderAutoAfter 12s infinite ;
+}
+/* progress bar */
+#timeline {
+    animation: timeLiner 12s infinite;
+}
+/* point de repere */
+.dots-commands li:first-child a::after {
+    animation: dots 12s infinite;
 }
 
-/* **************************************************************************************************************************************************************************************************************************** */
+/* ******************************************************
+                pour "l'animation" user control
+********************************************************* */
 
-/* pour les flèches directionnelles */
+/* pour "jongler" entre les images */
 
-/* les placer a droite et a gauche des dots 
-regarder si position peut correspondre */
-/* 
-pour les semantiques des fleches
+/* stopper les animations si clique sur une flèche directionnelle */
+.sl-command:target ~ #first-slider #slider-container #slider #slider-auto,
+.sl-command:target ~ #first-slider #slider-container::before,
+.sl-command:target ~ #first-slider #slider-container::after,
+.sl-command:target ~ #first-slider #slider-container .dots-commands li:first-child a::after,
+.sl-command:target ~ #first-slider #slider-container #timeline {
+    animation-play-state: paused;
+}
+/* pour cacher le slide auto et les after/before auto et faire apparaitre le slider-control et les after/before control */
+.sl-command:target ~ #first-slider #slider-container #slider #slider-auto, 
+.sl-command:target ~ #first-slider #slider-container::before, 
+.sl-command:target ~ #first-slider #slider-container::after {
+    visibility: hidden;
+}
+/* faire apparaitre slider control + slider control before/after */
+.sl-command:target ~ #first-slider #slider-container #slider #slider-control, 
+.sl-command:target ~ #first-slider #slider-control-container::after, 
+.sl-command:target ~ #first-slider #slider-control-container::before {
+    visibility: inherit;
+}
+/* pour cacher le point de repere auto after */
+.sl-command:target ~ #first-slider #slider-container .dots-commands li:first-child a::after {
+    display: none;
+}
+/* pour afficher le point de repere control before */
+.sl-command:target ~ #first-slider #slider-container .dots-commands li:first-child a::before {
+    display: block;
+}
+/* lorsque on cible un "slide" */
+/* pour "tricher" et passer outre le keyframe du #slider-auto et #slider-container after/before on utilise la div vide #slider-control et #slider-control-container lors du clic sur les flèches directionnelles pour remplacer les sliders auto */
 
-laquo \00ab &laquo;
-raquo \00bb &#187;
-*/
+/* first, on cache tous les flèches "précédent" et "suivant" et on affiche seulement deux flèches qui correspondent respectivement aux images précedente et suivante de l'image principale (== image principale est #sl-1, .arrow-1.prev à pour cible #sl-4 (dernière image) et .arrow-1.next à pour cible #sl-2 (seconde image) */
+#sl-1:target ~ #first-slider .arrow { display: none; }
+#sl-1:target ~ #first-slider .arrow-1 { display: block; }
+
+/* puis on "échange" les images en décalant le background en fonction des images ciblés */
+#sl-1:target ~ #first-slider #slider-container #slider #slider-control {
+    background-position: 0 0, 640px 0, 1280px 0, 1920px 0;
+}
+#sl-1:target ~ #first-slider #slider-control-container::before {
+    background-position: -480px 0, -320px 0, -160px 0, 0 0;
+}
+#sl-1:target ~ #first-slider #slider-control-container::after {
+    background-position: -160px 0, 0 0, 160px 0, 320px 0;
+}
+/* et enfin on place le point de repère en fonction de la cible principale (== sa position sera en correspondance avec les images affichés dans la slide principale ) */
+#sl-1:target ~ #first-slider #slider-container .dots-commands li:first-child a::before { left: 0; }
+
+/* même procédé pour les autres slides, décaler juste le background, le point de repère et cacher/faire apparaître les flèches en fonction de la cible principale */
+
+/* lorsque la 2ème image est ciblé */
+#sl-2:target ~ #first-slider .arrow { display: none; }
+#sl-2:target ~ #first-slider .arrow-2 { display: block; }
+
+#sl-2:target ~ #first-slider #slider-container #slider #slider-control {
+    background-position: -640px 0, 0 0, 640px 0, 1280px 0;
+}
+#sl-2:target ~ #first-slider #slider-control-container::before {
+    background-position: 0 0, 160px 0, 320px 0, 480px 0;
+}
+#sl-2:target ~ #first-slider #slider-control-container::after {
+    background-position: -320px 0, -160px 0, 0 0, 160px 0;
+}
+#sl-2:target ~ #first-slider #slider-container .dots-commands li:first-child a::before { left: 23px; }
+
+/* lorsque la 3ème image est ciblé */
+#sl-3:target ~ #first-slider .arrow { display: none; }
+#sl-3:target ~ #first-slider .arrow-3 { display: block; }
+#sl-3:target ~ #first-slider #slider-container #slider #slider-control {
+    background-position: -1280px 0, -640px 0, 0 0, 640px 0;
+}
+#sl-3:target ~ #first-slider #slider-control-container::before {
+    background-position: -160px 0, 0 0, 160px 0, 320px 0;
+}
+#sl-3:target ~ #first-slider #slider-control-container::after {
+    background-position: -480px 0, -320px 0, -160px 0, 0 0;
+}
+#sl-3:target ~ #first-slider #slider-container .dots-commands li:first-child a::before { left: 48px; }
+
+/* lorsque la 4ème image est ciblé */
+#sl-4:target ~ #first-slider .arrow { display: none; }
+#sl-4:target ~ #first-slider .arrow-4 { display: block; }
+
+#sl-4:target ~ #first-slider #slider-container #slider #slider-control {
+    background-position: -1920px 0, -1280px 0, -640px 0, 0 0;
+}
+#sl-4:target ~ #first-slider #slider-control-container::before {
+    background-position: -320px 0, -160px 0, 0 0, 160px 0;
+}
+#sl-4:target ~ #first-slider #slider-control-container::after {
+    background-position: 0 0, 160px 0, 320px 0, 480px 0;
+}
+#sl-4:target ~ #first-slider #slider-container .dots-commands li:first-child a::before { left: 71px; }

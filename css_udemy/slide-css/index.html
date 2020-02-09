@@ -5,59 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Slide pur css</title>
+    <title>Slider pur css</title>
 </head>
 <body>
     <h1>Slider en pur css</h1>
     <h2>Survolez les images et utilisez &#9658; et &#x275a;&#x275a; pour activer/désactiver le défilement automatique</h2>
-        <div id="first-slider">
-            <!-- pour controler le slider -->
-            <input type="checkbox" id="toggle">
-            <label for="toggle" id="sl-control"></label>
-            <!-- pour reculer/avancer vers une image -->
-            <input type="checkbox" id="prev-1">
-            <label for="prev-1" class="arrow prev"></label>
-            <input type="checkbox" id="prev-2">
-            <label for="prev-2" class="arrow prev"></label>
-            <input type="checkbox" id="prev-3">
-            <label for="prev-3" class="arrow prev"></label>
-            <input type="checkbox" id="prev-4">
-            <label for="prev-4" class="arrow prev"></label>
+    <span id="sl-play" class="sl-command"></span>
+    <span id="sl-pause" class="sl-command"></span>
+    <span id="sl-1" class="sl-command sl-img"></span>
+    <span id="sl-2" class="sl-command sl-img"></span>
+    <span id="sl-3" class="sl-command sl-img"></span>
+    <span id="sl-4" class="sl-command sl-img"></span>
+    <div id="first-slider">
+        <!-- flèches directionnelles -->
+        <a href="#sl-4" class="arrow prev arrow-1">&laquo;</a>
+        <a href="#sl-2" class="arrow next arrow-1">&raquo;</a>
+        <a href="#sl-1" class="arrow prev arrow-2">&laquo;</a>
+        <a href="#sl-3" class="arrow next arrow-2">&raquo;</a>
+        <a href="#sl-2" class="arrow prev arrow-3">&laquo;</a>
+        <a href="#sl-4" class="arrow next arrow-3">&raquo;</a>
+        <a href="#sl-3" class="arrow prev arrow-4">&laquo;</a>
+        <a href="#sl-1" class="arrow next arrow-4">&raquo;</a>
+        <!-- les boutons play/pause -->
+        <a class="sl-controler pause" href="#sl-pause"></a>
+        <a class="sl-controler play" href="#sl-play"></a>
+        <!-- le slider -->
+        <div id="slider-control-container"></div>
+        <div id="slider-container">
 
-            <input type="checkbox" id="next-1">
-            <label for="next-1" class="arrow next"></label>
-            <input type="checkbox" id="next-2">
-            <label for="next-2" class="arrow next"></label>
-            <input type="checkbox" id="next-3">
-            <label for="next-3" class="arrow next"></label>
-            <input type="checkbox" id="next-4">
-            <label for="next-4" class="arrow next"></label>
-            <!-- le slider -->
-            <div id="slider-container">
-                <div id="slider">
-                    <div id="slider-auto"></div>
-                </div>
-                <span id="timeline"></span>
-                <ul class="dots_commands">
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                </ul>
+            <div id="slider">
+                <div id="slider-auto"></div>
+                <div id="slider-control"></div>
             </div>
+            <span id="timeline"></span>
+            <ul class="dots-commands">
+                <li><a href="#sl-1"></a></li>
+                <li><a href="#sl-2"></a></li>
+                <li><a href="#sl-3"></a></li>
+                <li><a href="#sl-4"></a></li>
+            </ul>
         </div>
-        
-<!-- <div id="sl-1" class="sl-slide-show">
-                    <img src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1356&q=80" alt="" width="640" height="310">
-                </div> -->
-                <!-- <div id="sl-2" class="sl-slide-show">
-                    <img src="https://images.unsplash.com/photo-1489084917528-a57e68a79a1e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="" width="640" height="310">
-                </div> -->
-                <!-- <div id="sl-3" class="sl-slide-show">
-                    <img src="https://images.unsplash.com/photo-1504006833117-8886a355efbf?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="" width="640" height="310">
-                </div> -->
-                <!-- <div id="sl-4" class="sl-slide-show">
-                    <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="" width="640" height="310">
-                 -->
+    </div>
 </body>
 </html>
