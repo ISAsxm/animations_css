@@ -2,7 +2,7 @@
 
 ----------------
 
-Ensemble de repo contenant les exercices des cours suivit sur __udemy__  
+Ensemble de repo contenant les exercices des cours suivit sur __udemy__ ainsi que des exercices pratiques pour m'entraîner
 
 ----------------  
 
@@ -32,13 +32,18 @@ un header avec un background-image effet "découpé" en oblique sur le bas
 
 un bouton "toogle" en pur css
 
-* menu-rideau :
+* menu-rideau (js pour l'event clic) :
 
 un menu qui apparait depuis la gauche et vient prendre la totalité de la fenêtre (un peu de js pour l'action click)
 
 * menu-burger-pur-css
 
 un menu burger en pur css avec effet background qui s'étire et un menu qui apparait depuis la gauche et vient prendre la totalité de la fenêtre (petit effet rebond sur le menu avec cubic-bezier)
+
+* slide-css
+
+un slider automatique avec bouton de contrôle play/pause, une possibilité pour l'utilisateur de prendre le contrôle du slider soit avec des flêches directionnellles, soit avec les points de repères sous les slides
+
 
 ----------------
 
